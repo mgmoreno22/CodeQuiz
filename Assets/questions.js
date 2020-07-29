@@ -1,3 +1,5 @@
+//Holds the questions and answers
+
 var questionsArr = [
     {
         Question: "Commonly used data types DO NOT include:",

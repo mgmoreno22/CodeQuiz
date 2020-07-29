@@ -15,6 +15,7 @@
     </header>
     <br />
     <main>
+      <!-- Instructions for Quiz -->
       <section class="container startMenu">
         <h1>Coding Quiz Game</h1>
         <p class="instructions">
@@ -25,6 +26,7 @@
         <button id="start">Start Quiz</button>
       </section>
 
+      <!-- Render Questions and Answers -->
       <section class="container hide" id="questionDiv">
         <h2 id="question">Question</h2>
         <div id="answers">
@@ -34,12 +36,8 @@
           <button onclick = "checkAnswer(this.name)" id="choice4">4 </button>
         </div>
       </section>
-
-      <div class="hide" id="feedbackDiv">
-        <hr>
-        <span id="feedback"></span>
-      </div>
-
+      
+      <!-- Game Ended Screen -->
       <section class="container hide" id="gameOver">
         <h2 id="gameEnd">All Done!</h2>
         <p>Your final score is <span id="finalScore"></span></p>
@@ -51,6 +49,12 @@
           </p>
         </form>
       </section>
+
+      <!-- On-screen Feedback Notifications -->
+      <div class="hide" id="feedbackDiv">
+        <hr>
+        <span id="feedback"></span>
+      </div>
 
       <!-- ************ JAVASCRIPT ************ -->
       <script type="text/javascript" src="./Assets/questions.js"></script>
