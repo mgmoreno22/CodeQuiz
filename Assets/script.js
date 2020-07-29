@@ -10,6 +10,8 @@ var startScreen = document.querySelector(".container")
 var gameOverDiv = document.getElementById("gameOver")
 var gameEndEl = document.getElementById("gameEnd")
 var scoreFinal = document.getElementById("finalScore")
+var clearScores = document.getElementById("clearScores")
+var scoresList = document.getElementById("scoresList")
 
 var c1 = document.getElementById("choice1");
 var c2 = document.getElementById("choice2");
@@ -150,18 +152,32 @@ function endQuiz() {
 }
 
 submitBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    
     var playerInitials = document.getElementById("initials").value;
     var savedScores = localStorage.getItem("scores")
+    var playerResults = {name: playerInitials, score: score};
 
     if(savedScores !== null) {
         savedScores = JSON.parse(savedScores)
+        savedScores.push(playerResults);
 
+        localStorage.setItem("scores", JSON.stringify(savedScores));
         
     }
-    
+    else {
+        savedScores = [];
+        savedScores.push(playerResults);
 
-    localStorage.setItem("score", score)
+        localStorage.setItem("scores", JSON.stringify(savedScores));
+    }
     
+    for (var i = 0; i < savedScores.length; i++) {
+        var listEl = document.createElement("li");
+        listEl.textContent = savedScores[i].name + ": " + savedScores[i].score;
+        scoresList.appendChild(listEl);
+    }
+})
+
+clearScores.addEventListener("click", function(e) {
+    localStorage.clear();
+    window.reload();
 })
