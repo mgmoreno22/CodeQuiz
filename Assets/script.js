@@ -25,7 +25,7 @@ var quizOver = false;
 startBtn.addEventListener("click", function(){
     // Set up questions and hide instructions
     startScreen.setAttribute("class", "hide");
-    // Show the question div but re-add container class for formatting
+    // Show the question div with container class for formatting
     questionDiv.removeAttribute("class");
     questionDiv.setAttribute("class", "container");
 
@@ -71,7 +71,7 @@ function startTimer() {
       if(secondsLeft <= 0) {
         clearInterval(timerInterval);
         if (quizOver == false) {
-            gameLost();
+            endQuiz();
         }
       }
   
@@ -101,7 +101,7 @@ function checkAnswer(e) {
 }
 
 function sendFeedback(correct) {
-    feedbackTimer = 2;
+    feedbackTimer = 1;
 
     if (correct) {
         feedbackEl.textContent = "Correct!"
@@ -149,6 +149,19 @@ function endQuiz() {
     }
 }
 
-// form.addEventListener("submit", function (e) {
+submitBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    
+    var playerInitials = document.getElementById("initials").value;
+    var savedScores = localStorage.getItem("scores")
 
-// })
+    if(savedScores !== null) {
+        savedScores = JSON.parse(savedScores)
+
+        
+    }
+    
+
+    localStorage.setItem("score", score)
+    
+})

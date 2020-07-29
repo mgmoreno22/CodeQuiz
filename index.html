@@ -35,20 +35,22 @@
         </div>
       </section>
 
-      <section class="container hide" id="gameOver">
-        <h2 id="gameEnd">All Done!</h2>
-        <p>Your final score is <span id="finalScore"></span></p>
-        <p>
-          Enter Initials<br>
-          <input type="text" id="initials" max="3" />
-          <button id="submit">Submit</button>
-        </p>
-      </section>
-
       <div class="hide" id="feedbackDiv">
         <hr>
         <span id="feedback"></span>
       </div>
+
+      <section class="container hide" id="gameOver">
+        <h2 id="gameEnd">All Done!</h2>
+        <p>Your final score is <span id="finalScore"></span></p>
+        <form>
+          <p>
+            Enter Initials<br>
+            <input type="text" id="initials"/>
+            <button id="submit">Submit</button>
+          </p>
+        </form>
+      </section>
 
       <!-- ************ JAVASCRIPT ************ -->
       <script type="text/javascript" src="./Assets/questions.js"></script>
