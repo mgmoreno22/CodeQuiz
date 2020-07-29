@@ -5,14 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Code Quiz</title>
-
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-    />
-    <script type="text/javascript" src="./Assets/script.js"></script>
     <link rel="stylesheet" type="text/css" href="./Assets/style.css" />
   </head>
 
@@ -23,31 +15,45 @@
     </header>
     <br />
     <main>
-      <section class="container mx-auto text-center startMenu">
+      <section class="container startMenu">
         <h1>Coding Quiz Game</h1>
         <p class="instructions">
           Try to answer the following code-related questions within the time
           limit. Keep in mind that incorrect answers will penalize your
           scoretime by ten seconds.
         </p>
-        <button id="start">Start</button>
+        <button id="start">Start Quiz</button>
       </section>
 
-      <div class="hide" id="questions">
-        <h2 id="question"></h2>
-        <div id="answers"></div>
-      </div>
+      <section class="container hide" id="questionDiv">
+        <h2 id="question">Question</h2>
+        <div id="answers">
+          <button onclick = "checkAnswer(this.name)" id="choice1">1 </button><br>
+          <button onclick = "checkAnswer(this.name)" id="choice2">2 </button><br>
+          <button onclick = "checkAnswer(this.name)" id="choice3">3 </button><br>
+          <button onclick = "checkAnswer(this.name)" id="choice4">4 </button>
+        </div>
+      </section>
 
-      <div class="hide">
-        <h2>All Done!</h2>
+      <section class="container hide" id="gameOver">
+        <h2 id="gameEnd">All Done!</h2>
         <p>Your final score is <span id="finalScore"></span></p>
         <p>
-          Enter Initials<input type="text" id="initials" max="3" />
+          Enter Initials<br>
+          <input type="text" id="initials" max="3" />
           <button id="submit">Submit</button>
         </p>
+      </section>
+
+      <div class="hide" id="feedbackDiv">
+        <hr>
+        <span id="feedback"></span>
       </div>
 
-      <div id="feedback"></div>
+      <!-- ************ JAVASCRIPT ************ -->
+      <script type="text/javascript" src="./Assets/questions.js"></script>
+      <script type="text/javascript" src="./Assets/script.js"></script>
+
     </main>
   </body>
 </html>
